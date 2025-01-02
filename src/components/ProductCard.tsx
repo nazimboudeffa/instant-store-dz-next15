@@ -26,7 +26,7 @@ function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link
-      href={`/products/${handle}`}
+      href={`/${handle}`}
       passHref
     >
       <div className="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter">
@@ -50,9 +50,7 @@ function ProductCard({ product }: ProductCardProps) {
             rounded-tl-sm triangle"
           >
             <Price
-              currency="DZD"
               num={price}
-              numSize="text-lg"
             />
           </div>
         </div>
