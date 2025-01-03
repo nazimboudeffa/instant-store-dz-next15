@@ -1,15 +1,29 @@
 import Price from '@/components/Price'
 import { useCart } from '@/context/CartContext'
 import { X } from 'lucide-react'
+import { useEffect, useState } from 'react';
 
 function CartTable() {
   const { cartItems, setCartItems } = useCart()
+  const [subTotal, setSubTotal] = useState(0)
+
+  const setCartSubTotal = (items: { price: number, quantity: number }[]) => {
+    return items.reduce((acc: number, item: { price: number, quantity: number }) => {
+      return acc + item.price * item.quantity
+    }
+    , 0);
+  }
 
   const handleQuantityChange = (index: number, value: number) => {
     const updatedItems = [...cartItems];
     updatedItems[index].quantity = value;
     setCartItems(updatedItems);
   };
+
+  useEffect(() => {
+    setSubTotal(setCartSubTotal(cartItems));
+  }
+  , [cartItems, setSubTotal]);
 
   if (cartItems === undefined) {
     return null
@@ -20,7 +34,7 @@ function CartTable() {
   }
 
   return (
-    <div className="my-4 sm:my-8 mx-auto w-full">
+    <div className="my-4 sm:my-8 mx-auto w-full flex flex-col items-center">
       <table className="mx-auto">
         <thead>
           <tr className="uppercase text-xs sm:text-sm text-palette-primary border-b border-palette-light">
@@ -73,6 +87,14 @@ function CartTable() {
           ))}
         </tbody>
       </table>
+      {subTotal > 0 && (
+        <div className="flex items-center justify-center mt-4">
+          <div className="font-bold">TOTAL : </div>
+          <Price
+            num={subTotal}
+          />
+        </div>
+      )}
     </div>
   )
 }
