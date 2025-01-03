@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Price from '@/components/Price'
 import { useCart } from '@/context/CartContext'
 import { X } from 'lucide-react'
