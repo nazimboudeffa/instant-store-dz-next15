@@ -1,30 +1,22 @@
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Price from '@/components/Price'
+import { useCart } from '@/context/CartContext'
+import { X } from 'lucide-react'
 
-interface ProductData {
-    title: string;
-    description: string;
-    price: number;
-}
+function CartTable() {
+  const { cartItems, setCartItems } = useCart()
 
-interface CartTableProps {
-    cartItems: ProductData[];
-}
+  const handleQuantityChange = (index: number, value: number) => {
+    const updatedItems = [...cartItems];
+    updatedItems[index].quantity = value;
+    setCartItems(updatedItems);
+  };
 
-function CartTable({ cartItems }: Readonly<CartTableProps>) {
-  const [localCartItems, setLocalCartItems] = useState<ProductData[]>([])
-  const subtotal = 0
-
-  useEffect(() => {
-    setLocalCartItems(cartItems)
-  }, [cartItems])
-
-  if (localCartItems === undefined) {
+  if (cartItems === undefined) {
     return null
   }
 
-  if (localCartItems.length === 0) {
+  if (cartItems.length === 0) {
     return null
   }
 
@@ -40,7 +32,7 @@ function CartTable({ cartItems }: Readonly<CartTableProps>) {
           </tr>
         </thead>
         <tbody className="divide-y divide-palette-lighter">
-          {localCartItems.map((item, index) => (
+          {cartItems.map((item, index) => (
             <tr key={index} className="text-sm sm:text-base text-gray-600 text-center">
               <td className="font-primary font-medium px-4 sm:px-6 py-4 flex items-center">
                 <Link passHref href="/" >
@@ -57,6 +49,8 @@ function CartTable({ cartItems }: Readonly<CartTableProps>) {
                   name="variant-quantity"
                   min="1"
                   step="1"
+                  value={String(item.quantity ?? 1)}
+                  onChange={(e) => handleQuantityChange(index, Number(e.target.value))}
                   className="text-gray-900 form-input border border-gray-300 w-16 rounded-sm focus:border-palette-light focus:ring-palette-light"
                 />
               </td>
@@ -68,28 +62,18 @@ function CartTable({ cartItems }: Readonly<CartTableProps>) {
               <td className="font-primary font-medium px-4 sm:px-6 py-4">
                 <button
                   aria-label="delete-item"
-                  className=""
+                  className="text-palette-primary hover:text-palette-dark"
+                  onClick={() => {
+                    const updatedItems = [...cartItems];
+                    updatedItems.splice(index, 1);
+                    setCartItems(updatedItems);
+                  }}
                 >
-                    Remove
+                    <X size={24} />
                 </button>
               </td>
             </tr>
           ))}
-          {
-            subtotal === 0 ?
-              null
-              :
-              <tr className="text-center">
-                <td></td>
-                <td className="font-primary text-base text-gray-600 font-semibold uppercase px-4 sm:px-6 py-4">Subtotal</td>
-                <td className="font-primary text-lg text-palette-primary font-medium px-4 sm:px-6 py-4">
-                  <Price
-                    num={subtotal}
-                  />
-                </td>
-                <td></td>
-              </tr>
-          }
         </tbody>
       </table>
     </div>

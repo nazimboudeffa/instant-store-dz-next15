@@ -9,7 +9,8 @@ interface ProductData {
 }
 
 function ProductDetails({ productData }: Readonly<{ productData: ProductData }>) {
-  const { addToCart } = useCart();
+  const { cartItems, addToCart } = useCart();
+  const isProductInCart = cartItems.some(item => item.title === productData.title);
 
   return (
     <div className="flex flex-col justify-between h-full w-full md:w-1/2 max-w-xs mx-auto space-y-4 min-h-128">
@@ -19,10 +20,11 @@ function ProductDetails({ productData }: Readonly<{ productData: ProductData }>)
         price={productData.price}
       />
       <button 
-        onClick={() => addToCart(productData)} 
-        className="bg-blue-500 text-white py-2 px-4 rounded"
+        onClick={() => addToCart({ ...productData, quantity: 1 })} 
+        className={`py-2 px-4 rounded ${isProductInCart ? 'bg-gray-200' : 'bg-blue-500'} text-white`}
+        disabled={isProductInCart}
       >
-        Add to Cart
+        {isProductInCart ? 'Already in Cart' : 'Add to Cart'}
       </button>
     </div>
   )
