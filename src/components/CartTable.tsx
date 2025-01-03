@@ -35,11 +35,9 @@ function CartTable() {
           {cartItems.map((item, index) => (
             <tr key={index} className="text-sm sm:text-base text-gray-600 text-center">
               <td className="font-primary font-medium px-4 sm:px-6 py-4 flex items-center">
-                <Link passHref href="/" >
-                  <div className="pt-1 hover:text-palette-dark">
-                    {item.title}
-                  </div>
-                </Link>
+                <div className="pt-1 hover:text-palette-dark">
+                  {item.title}
+                </div>
               </td>
               <td className="font-primary font-medium px-4 sm:px-6 py-4">
                 <input
