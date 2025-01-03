@@ -6,8 +6,9 @@ function ProductImage({ imageSrc }: { readonly imageSrc: StaticImageData }) {
       <div className="relative h-96">
         <Image
           src={imageSrc}
+          width={1000}
+          height={1000}
           alt="product-image"
-          layout="fill"
           className="transform duration-500 ease-in-out hover:scale-105"
         />
       </div>

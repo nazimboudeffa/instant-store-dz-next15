@@ -34,7 +34,8 @@ function ProductCard({ product }: ProductCardProps) {
           <Image
             src={imageSrc}
             alt={imageAltText}
-            layout="fill"
+            width={1000}
+            height={1000}
             className="transform duration-500 ease-in-out hover:scale-110"
           />
         </div>
