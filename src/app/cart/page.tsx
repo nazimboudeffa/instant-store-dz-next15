@@ -38,7 +38,7 @@ function CartPage() {
         <>
           <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
           <CartTable />
-          <h1 className="text-2xl font-bold mb-4">Delivery Options</h1>
+          <h1 className="text-2xl font-bold mb-4">Select your Delivery Options</h1>
           <div className="flex flex-row justify-center items-center gap-3 mb-5">
             <Checkout 
               logo={weeWeeDeliveryLogo}
@@ -53,7 +53,7 @@ function CartPage() {
               selected={selectedDeliveryOption === 'Yassir'}
             />
           </div>
-          <h1 className="text-2xl font-bold mb-4">Payment Options</h1>
+          <h1 className="text-2xl font-bold mb-4">Select your Payment Options</h1>
           <div className="flex flex-row justify-center items-center gap-3 mb-5">
             <Checkout
               logo={slickpayLogo}
@@ -64,7 +64,7 @@ function CartPage() {
           </div>
           {(selectedDeliveryOption && selectedPaymentOption) && (
             <div className="max-w-sm mx-auto space-y-4 px-2 mb-5">
-              <h2 className="text-xl font-bold mb-2">Address Details</h2>
+              <h2 className="text-xl font-bold mb-2">Fill in your Address Details</h2>
               <input type="text" placeholder="Full Name" className="w-full p-2 border rounded mb-2" />
               <input type="text" placeholder="Phone Number" className="w-full p-2 border rounded mb-2" />
               <input type="text" placeholder="Email" className="w-full p-2 border rounded mb-2" />
