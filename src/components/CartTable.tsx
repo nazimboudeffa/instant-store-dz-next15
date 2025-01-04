@@ -40,7 +40,7 @@ function CartTable() {
           <tr className="uppercase text-xs sm:text-sm text-palette-primary border-b border-palette-light">
             <th className="font-primary font-normal px-6 py-4">Product</th>
             <th className="font-primary font-normal px-6 py-4">Quantity</th>
-            <th className="font-primary font-normal px-6 py-4 hidden sm:table-cell">Price</th>
+            <th className="font-primary font-normal px-6 py-4 hidden sm:table-cell">Unit Price</th>
             <th className="font-primary font-normal px-6 py-4">Remove</th>
           </tr>
         </thead>

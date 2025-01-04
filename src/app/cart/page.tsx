@@ -77,7 +77,7 @@ function CartPage() {
               <input type="text" placeholder="Email" className="w-full p-2 border rounded mb-2" />
               <input type="text" placeholder="Street Address" className="w-full p-2 border rounded mb-2" />
               <input type="text" placeholder="City" className="w-full p-2 border rounded mb-2" />
-              <input type="text" placeholder="State" className="w-full p-2 border rounded mb-2" />
+              <input type="text" placeholder="Wilaya" className="w-full p-2 border rounded mb-2" />
               <input type="text" placeholder="Zip Code" className="w-full p-2 border rounded mb-2" />
             </div>
           )}
