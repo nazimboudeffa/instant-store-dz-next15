@@ -7,6 +7,7 @@ import Checkout from '@/components/Checkout';
 import yassirLogo from '@/assets/yassir-logo.png'; // Update the path to your logo
 import weeWeeDeliveryLogo from '@/assets/weeweedelivery-logo.png';
 import slickpayLogo from '@/assets/slick-pay-logo.png';
+import alpayLogo from '@/assets/alpay-logo.png';
 
 function CartPage() {
   const { cartItems } = useCart();
@@ -60,6 +61,12 @@ function CartPage() {
               text="Slick-Pay"
               onClick={() => handleSelectPayment('Slick-Pay')}
               selected={selectedPaymentOption === 'Slick-Pay'}  
+            />
+            <Checkout
+              logo={alpayLogo}
+              text="alPay"
+              onClick={() => handleSelectPayment('AlPay')}
+              selected={selectedPaymentOption === 'AlPay'}
             />
           </div>
           {(selectedDeliveryOption && selectedPaymentOption) && (
