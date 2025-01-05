@@ -8,6 +8,8 @@ import yassirLogo from '@/assets/yassir-logo.png'; // Update the path to your lo
 import weeWeeDeliveryLogo from '@/assets/weeweedelivery-logo.png';
 import slickpayLogo from '@/assets/slick-pay-logo.png';
 import alpayLogo from '@/assets/alpay-logo.png';
+import bnaLogo from '@/assets/bna-logo.png';
+import cnepLogo from '@/assets/cnep-logo.png';
 
 function CartPage() {
   const { cartItems } = useCart();
@@ -67,6 +69,18 @@ function CartPage() {
               text="alPay"
               onClick={() => handleSelectPayment('AlPay')}
               selected={selectedPaymentOption === 'AlPay'}
+            />
+            <Checkout
+              logo={bnaLogo}
+              text="WimPay"
+              onClick={() => handleSelectPayment('WimPay')}
+              selected={selectedPaymentOption === 'WimPay'}
+            />
+            <Checkout
+              logo={cnepLogo}
+              text="MobiPay"
+              onClick={() => handleSelectPayment('MobiPay')}
+              selected={selectedPaymentOption === 'MobiPay'}
             />
           </div>
           {(selectedDeliveryOption && selectedPaymentOption) && (
