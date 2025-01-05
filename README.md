@@ -34,7 +34,7 @@ You can join our little server on Discord https://discord.gg/EPM4rqpmcf
 ## Features
 
 - Display products
-- Delvery
+- Delivery
 - Payment
 
 ## Local Development
