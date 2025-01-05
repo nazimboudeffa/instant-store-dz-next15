@@ -30,7 +30,7 @@ function ProductCard({ product }: ProductCardProps) {
       passHref
     >
       <div className="h-120 w-72 rounded shadow-lg mx-auto border border-palette-lighter">
-        <div className="h-72 border-b-2 border-palette-lighter relative">
+        <div className="overflow-hidden h-72 border-b-2 border-palette-lighter relative">
           <Image
             src={imageSrc}
             alt={imageAltText}
