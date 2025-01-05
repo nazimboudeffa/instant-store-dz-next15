@@ -10,7 +10,7 @@ export default function Footer() {
               mini store
             </Link>
             <p className="text-sm text-muted-foreground">
-                Simply e-commerce
+              A simple e-commerce store
             </p>
           </div>
           <div className="flex flex-wrap gap-5 text-sm text-muted-foreground">
