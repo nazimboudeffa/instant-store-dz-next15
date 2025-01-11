@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <PlausibleProvider domain="demo.instant-market.com" customDomain="http://monitoring-plausible-9b827c-51-83-44-197.traefik.me/js/script.js" />
+        <PlausibleProvider domain="demo.instant-market.com" customDomain="monitoring-plausible-9b827c-51-83-44-197.traefik.me" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
