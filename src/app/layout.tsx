@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script defer data-domain="demo.instant-market.com" src="http://monitoring-plausible-9b827c-51-83-44-197.traefik.me/js/script.js"></script>
+        <script defer data-domain="demo.instant-market.com" src="http://plausible.codewithadu.de/js/script.js"></script>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
