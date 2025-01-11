@@ -4,6 +4,7 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
+import PlausibleProvider from "next-plausible";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <script defer data-domain="demo.instant-market.com" src="https://plausible.codewithadu.de/js/script.js"></script>
+        <PlausibleProvider domain="demo.instant-market.com" customDomain="https://plausible.codewithadu.de" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
